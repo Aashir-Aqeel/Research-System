@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Central Research System</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #f4f3f0;
+        --surface: #ffffff;
+        --surface-2: #f0efec;
+        --border: rgba(0, 0, 0, 0.1);
+        --border-md: rgba(0, 0, 0, 0.18);
+        --text: #1a1a18;
+        --text-2: #5a5a56;
+        --text-3: #9a9a94;
+        --green: #3b6d11;
+        --green-bg: #eaf3de;
+        --amber: #ba7517;
+        --amber-bg: #faeeda;
+        --red: #a32d2d;
+        --red-bg: #fcebeb;
+        --blue: #185fa5;
+        --blue-bg: #e6f1fb;
+        --radius: 12px;
+        --radius-sm: 8px;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .app {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 2.5rem 1.5rem 5rem;
+      }
+
+      /* ── Header ── */
+      .header {
+        margin-bottom: 2rem;
+      }
+
+      .header-top {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 5px;
+      }
+
+      h1 {
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      .badge {
+        font-size: 11px;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: var(--green-bg);
+        color: var(--green);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .subtitle {
+        font-size: 13px;
+        color: var(--text-3);
+        margin-top: 2px;
+      }
+
+      /* ── Mode tabs ── */
+      .mode-tabs {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 1.75rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .mode-tab {
+        font-size: 13px;
+        font-weight: 500;
+        padding: 8px 16px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: var(--text-3);
+        border-bottom: 2px solid transparent;
+        margin-bottom: -1px;
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        transition: color 0.15s;
+      }
+
+      .mode-tab.active {
+        color: var(--text);
+        border-bottom-color: var(--text);
+      }
+      .mode-tab.locked {
+        opacity: 0.35;
+        cursor: not-allowed;
+      }
+      .mode-tab:hover:not(.locked):not(.active) {
+        color: var(--text-2);
+      }
+
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        display: inline-block;
+        flex-shrink: 0;
+      }
+      .dot-light {
+        background: #639922;
+      }
+      .dot-medium {
+        background: #ba7517;
+      }
+      .dot-deep {
+        background: #d85a30;
+      }
+      .dot-comp {
+        background: #7f77dd;
+      }
+
+      /* ── Service status bar ── */
+      .service-bar {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 1.25rem;
+        flex-wrap: wrap;
+      }
+
+      .service-pill {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        padding: 5px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text-3);
+      }
+
+      .service-pill .pip {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--text-3);
+        flex-shrink: 0;
+      }
+
+      .service-pill.ready {
+        background: var(--green-bg);
+        border-color: transparent;
+        color: var(--green);
+      }
+      .service-pill.ready .pip {
+        background: var(--green);
+      }
+      .service-pill.missing {
+        background: var(--amber-bg);
+        border-color: transparent;
+        color: var(--amber);
+      }
+      .service-pill.missing .pip {
+        background: var(--amber);
+      }
+
+      .service-detail {
+        font-size: 11px;
+        color: var(--text-3);
+        margin-left: 2px;
+        font-weight: 400;
+      }
+
+      /* ── Search bar ── */
+      .search-bar {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 1.5rem;
+        align-items: flex-end;
+      }
+
+      textarea {
+        flex: 1;
+        padding: 12px 14px;
+        font-size: 15px;
+        font-family: inherit;
+        border: 1px solid var(--border-md);
+        border-radius: var(--radius);
+        background: var(--surface);
+        color: var(--text);
+        resize: none;
+        outline: none;
+        line-height: 1.55;
+        min-height: 70px;
+        transition: border-color 0.15s;
+      }
+
+      textarea:focus {
+        border-color: #555;
+      }
+      textarea::placeholder {
+        color: var(--text-3);
+      }
+
+      .run-btn {
+        padding: 0 24px;
+        font-size: 14px;
+        font-weight: 500;
+        font-family: inherit;
+        border: none;
+        border-radius: var(--radius);
+        background: var(--text);
+        color: #fff;
+        cursor: pointer;
+        white-space: nowrap;
+        height: 40px;
+        transition:
+          opacity 0.15s,
+          transform 0.1s;
+      }
+
+      .run-btn:hover {
+        opacity: 0.85;
+      }
+      .run-btn:active {
+        transform: scale(0.98);
+      }
+      .run-btn:disabled {
+        opacity: 0.38;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* ── Pipeline ── */
+      .pipeline {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+        margin-bottom: 1.25rem;
+      }
+
+      .step-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 14px;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+
+      .step-card.active {
+        border-color: #639922;
+        background: #f7fbf2;
+      }
+      .step-card.done {
+        border-color: var(--border);
+      }
+
+      .step-num {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--text-3);
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        margin-bottom: 4px;
+      }
+
+      .step-name {
+        font-size: 13px;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .step-status {
+        font-size: 12px;
+        color: var(--text-3);
+        min-height: 17px;
+      }
+
+      .step-status.active {
+        color: #639922;
+      }
+      .step-status.done {
+        color: var(--green);
+      }
+
+      /* ── Thought panel ── */
+      .thought-panel {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 16px 18px;
+        margin-bottom: 1rem;
+        display: none;
+      }
+      .thought-panel.visible {
+        display: block;
+      }
+
+      .panel-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--text-3);
+        margin-bottom: 10px;
+      }
+
+      .thought-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .thought-item {
+        font-size: 13px;
+        color: var(--text-2);
+        padding: 7px 10px;
+        background: var(--surface-2);
+        border-radius: 6px;
+        line-height: 1.5;
+      }
+
+      .thought-item.reasoning {
+        background: var(--blue-bg);
+        color: var(--blue);
+      }
+
+      /* ── Search chips ── */
+      .search-grid {
+        display: none;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 8px;
+        margin-bottom: 1rem;
+      }
+      .search-grid.visible {
+        display: grid;
+      }
+
+      .search-chip {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 10px 12px;
+        transition: border-color 0.2s;
+      }
+
+      .search-chip.searching {
+        border-color: var(--amber);
+      }
+      .search-chip.done {
+        border-color: var(--green);
+      }
+
+      .chip-label {
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 3px;
+        color: var(--text-3);
+      }
+      .chip-label.searching {
+        color: var(--amber);
+      }
+      .chip-label.done {
+        color: var(--green);
+      }
+
+      .chip-query {
+        font-size: 12px;
+        color: var(--text);
+        line-height: 1.4;
+        font-weight: 500;
+      }
+
+      .chip-sources {
+        margin-top: 6px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        align-items: center;
+      }
+
+      .tier-badge {
+        font-size: 9px;
+        font-weight: 600;
+        padding: 1px 6px;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .tier-badge.t1 {
+        background: var(--green-bg);
+        color: var(--green);
+      }
+      .tier-badge.t2 {
+        background: var(--surface-2);
+        color: var(--text-3);
+      }
+
+      .source-pill.tier1 {
+        border-color: #9fe1cb;
+      }
+
+      /* ── Error ── */
+      .error-msg {
+        background: var(--red-bg);
+        border: 1px solid #f09595;
+        border-radius: var(--radius-sm);
+        padding: 12px 14px;
+        font-size: 13px;
+        color: var(--red);
+        margin-bottom: 1rem;
+        display: none;
+      }
+      .error-msg.visible {
+        display: block;
+      }
+
+      /* ── Result panel ── */
+      .result-panel {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 22px 24px;
+        display: none;
+      }
+      .result-panel.visible {
+        display: block;
+      }
+
+      .result-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+      }
+
+      .result-title {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--text-3);
+      }
+
+      .result-meta {
+        font-size: 12px;
+        color: var(--text-3);
+      }
+
+      .result-body {
+        font-size: 15px;
+        line-height: 1.78;
+        color: var(--text);
+        white-space: pre-wrap;
+      }
+
+      .sources-row {
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        align-items: center;
+      }
+
+      .sources-label {
+        font-size: 11px;
+        color: var(--text-3);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 600;
+        margin-right: 4px;
+      }
+
+      .source-pill {
+        font-size: 12px;
+        padding: 3px 10px;
+        background: var(--surface-2);
+        border-radius: 999px;
+        color: var(--text-2);
+        text-decoration: none;
+        border: 1px solid var(--border);
+        transition: background 0.15s;
+      }
+      .source-pill:hover {
+        background: #e5e4e0;
+      }
+
+      @media (max-width: 600px) {
+        .pipeline {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .run-btn {
+          height: auto;
+          padding: 12px 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <!-- Header -->
+      <div class="header">
+        <div class="header-top">
+          <span class="badge">Light Research</span>
+          <h1>Central Research System</h1>
+        </div>
+        <p class="subtitle">
+          Chain-of-thought decomposition → Serper web search → Azure GPT
+          synthesis
+        </p>
+      </div>
+
+      <!-- Mode tabs -->
+      <div class="mode-tabs">
+        <button class="mode-tab active">
+          <span class="dot dot-light"></span>Light
+        </button>
+        <button class="mode-tab locked">
+          <span class="dot dot-medium"></span>Medium
+        </button>
+        <button class="mode-tab locked">
+          <span class="dot dot-deep"></span>Deep
+        </button>
+        <button class="mode-tab locked">
+          <span class="dot dot-comp"></span>Computer Use
+        </button>
+      </div>
+
+      <!-- Service status bar -->
+      <div class="service-bar" id="serviceBar">
+        <div class="service-pill" id="pillAzure">
+          <span class="pip"></span>
+          <span>Azure OpenAI</span>
+          <span class="service-detail" id="pillAzureDetail">checking...</span>
+        </div>
+        <div class="service-pill" id="pillSerper">
+          <span class="pip"></span>
+          <span>Serper</span>
+          <span class="service-detail" id="pillSerperDetail">checking...</span>
+        </div>
+      </div>
+
+      <!-- Search bar -->
+      <div class="search-bar">
+        <textarea
+          id="query"
+          placeholder="Ask anything — e.g. What are the latest advancements in fusion energy?"
+          rows="2"
+        ></textarea>
+        <button class="run-btn" id="runBtn" onclick="runResearch()">
+          Research ↗
+        </button>
+      </div>
+
+      <!-- Pipeline steps -->
+      <div class="pipeline">
+        <div class="step-card" id="step1">
+          <div class="step-num">Step 1</div>
+          <div class="step-name">Chain-of-thought</div>
+          <div class="step-status" id="s1">Waiting</div>
+        </div>
+        <div class="step-card" id="step2">
+          <div class="step-num">Step 2</div>
+          <div class="step-name">Decompose queries</div>
+          <div class="step-status" id="s2">Waiting</div>
+        </div>
+        <div class="step-card" id="step3">
+          <div class="step-num">Step 3</div>
+          <div class="step-name">Search, scrape &amp; rank</div>
+          <div class="step-status" id="s3">Waiting</div>
+        </div>
+        <div class="step-card" id="step4">
+          <div class="step-num">Step 4</div>
+          <div class="step-name">Synthesize answer</div>
+          <div class="step-status" id="s4">Waiting</div>
+        </div>
+      </div>
+
+      <!-- Thought panel -->
+      <div class="thought-panel" id="thoughtPanel">
+        <div class="panel-label">Reasoning &amp; sub-questions</div>
+        <ul class="thought-list" id="thoughtList"></ul>
+      </div>
+
+      <!-- Search chips -->
+      <div class="search-grid" id="searchGrid"></div>
+
+      <!-- Error -->
+      <div class="error-msg" id="errorMsg"></div>
+
+      <!-- Result -->
+      <div class="result-panel" id="resultPanel">
+        <div class="result-header">
+          <span class="result-title">Synthesized Answer</span>
+          <span class="result-meta" id="resultMeta"></span>
+        </div>
+        <div class="result-body" id="resultBody"></div>
+        <div class="sources-row" id="sourcesRow"></div>
+      </div>
+    </div>
+
+    <script>
+      const API_BASE = "http://localhost:8000";
+
+      // ── Service status check ────────────────────────────────────────────────────
+
+      async function checkConfig() {
+        try {
+          const res = await fetch(`${API_BASE}/config`);
+          const data = await res.json();
+
+          const azurePill = document.getElementById("pillAzure");
+          const azureDetail = document.getElementById("pillAzureDetail");
+          if (data.azure_ready) {
+            azurePill.className = "service-pill ready";
+            azureDetail.textContent = data.deployment || "";
+          } else {
+            azurePill.className = "service-pill missing";
+            azureDetail.textContent = "not configured";
+          }
+
+          const serperPill = document.getElementById("pillSerper");
+          const serperDetail = document.getElementById("pillSerperDetail");
+          if (data.serper_ready) {
+            serperPill.className = "service-pill ready";
+            serperDetail.textContent = "google.serper.dev";
+          } else {
+            serperPill.className = "service-pill missing";
+            serperDetail.textContent = "not configured";
+          }
+        } catch {
+          // Server not up yet — leave as "checking..."
+        }
+      }
+
+      checkConfig();
+
+      // ── UI helpers ──────────────────────────────────────────────────────────────
+
+      function setStep(n, state, text) {
+        document.getElementById("step" + n).className =
+          "step-card " + (state || "");
+        const s = document.getElementById("s" + n);
+        s.className = "step-status " + (state || "");
+        s.textContent = text;
+      }
+
+      function showError(msg) {
+        const el = document.getElementById("errorMsg");
+        el.textContent = msg;
+        el.className = "error-msg visible";
+      }
+
+      function resetUI() {
+        document.getElementById("errorMsg").className = "error-msg";
+        document.getElementById("thoughtPanel").className = "thought-panel";
+        document.getElementById("thoughtList").innerHTML = "";
+        document.getElementById("searchGrid").className = "search-grid";
+        document.getElementById("searchGrid").innerHTML = "";
+        document.getElementById("resultPanel").className = "result-panel";
+        document.getElementById("resultBody").textContent = "";
+        document.getElementById("resultMeta").textContent = "";
+        document.getElementById("sourcesRow").innerHTML = "";
+        [1, 2, 3, 4].forEach((n) => setStep(n, "", "Waiting"));
+      }
+
+      // ── SSE event handlers ──────────────────────────────────────────────────────
+
+      function onStep(data) {
+        setStep(data.step, data.state, data.text);
+      }
+
+      function onDecomposition(data) {
+        document.getElementById("thoughtPanel").className =
+          "thought-panel visible";
+        const list = document.getElementById("thoughtList");
+
+        const r = document.createElement("li");
+        r.className = "thought-item reasoning";
+        r.textContent = "💡 " + data.reasoning;
+        list.appendChild(r);
+
+        data.queries.forEach((q, i) => {
+          const li = document.createElement("li");
+          li.className = "thought-item";
+          li.textContent = `Q${i + 1}: ${q}`;
+          list.appendChild(li);
+        });
+      }
+
+      function onSearchStart(data) {
+        const grid = document.getElementById("searchGrid");
+        grid.className = "search-grid visible";
+
+        const chip = document.createElement("div");
+        chip.className = "search-chip searching";
+        chip.id = "chip" + data.index;
+        chip.innerHTML = `
+      <div class="chip-label searching">Searching &amp; scraping...</div>
+      <div class="chip-query">${escHtml(data.query)}</div>
+      <div class="chip-sources" id="chipSrc${data.index}"></div>
+    `;
+        grid.appendChild(chip);
+      }
+
+      function onSearchDone(data) {
+        const chip = document.getElementById("chip" + data.index);
+        if (!chip) return;
+        const fullScraped = data.full_scraped || 0;
+        chip.className = "search-chip done";
+        const lbl = chip.querySelector(".chip-label");
+        lbl.className = "chip-label done";
+        lbl.textContent =
+          fullScraped > 0 ? `Found · ${fullScraped} pages read` : "Found";
+
+        const srcEl = document.getElementById("chipSrc" + data.index);
+        if (srcEl && data.citations && data.citations.length) {
+          srcEl.innerHTML = "";
+          const seen = new Set();
+          data.citations.slice(0, 4).forEach((c) => {
+            const domain = c.domain || "";
+            if (seen.has(domain)) return;
+            seen.add(domain);
+            const badge = document.createElement("span");
+            const isFullPage = c.type === "full_page";
+            badge.className =
+              "tier-badge " + (c.tier === "tier1" ? "t1" : "t2");
+            badge.textContent = domain + (isFullPage ? " ✦" : "");
+            badge.title = isFullPage
+              ? `Full page scraped (${(c.chars || 0).toLocaleString()} chars)`
+              : "Snippet only";
+            srcEl.appendChild(badge);
+          });
+        }
+      }
+
+      function onResult(data) {
+        document.getElementById("resultPanel").className =
+          "result-panel visible";
+        const scrapeInfo =
+          data.total_scraped > 0
+            ? ` · ${data.total_scraped} pages fully read`
+            : "";
+        document.getElementById("resultMeta").textContent =
+          `${data.elapsed}s · ${data.sources_searched} searches · ${data.citations.length} sources${scrapeInfo}`;
+        document.getElementById("resultBody").textContent = data.answer;
+
+        if (data.citations && data.citations.length) {
+          const row = document.getElementById("sourcesRow");
+          const label = document.createElement("span");
+          label.className = "sources-label";
+          label.textContent = "Sources";
+          row.appendChild(label);
+
+          const seen = new Set();
+          data.citations.forEach((c) => {
+            const domain = c.domain || "";
+            if (seen.has(domain)) return;
+            seen.add(domain);
+            const a = document.createElement("a");
+            const isTier1 = c.tier === "tier1";
+            const isFullPage = c.type === "full_page";
+            a.className = "source-pill" + (isTier1 ? " tier1" : "");
+            a.href = c.url;
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+            const tierLabel = isTier1 ? "★ High-authority" : "Standard";
+            const contentLabel = isFullPage
+              ? `Full page read (${(c.chars || 0).toLocaleString()} chars)`
+              : "Snippet only";
+            a.title = `${tierLabel} · ${contentLabel}`;
+            a.textContent = domain + (isFullPage ? " ✦" : "");
+            row.appendChild(a);
+          });
+        }
+      }
+
+      // ── Main ────────────────────────────────────────────────────────────────────
+
+      async function runResearch() {
+        const query = document.getElementById("query").value.trim();
+        if (!query) {
+          showError("Please enter a research question.");
+          return;
+        }
+
+        const btn = document.getElementById("runBtn");
+        btn.disabled = true;
+        resetUI();
+
+        try {
+          const response = await fetch(`${API_BASE}/research/light`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ query }),
+          });
+
+          if (!response.ok) {
+            const err = await response.json().catch(() => ({}));
+            throw new Error(err.detail || "Server error " + response.status);
+          }
+
+          const reader = response.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = "";
+
+          while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+
+            buffer += decoder.decode(value, { stream: true });
+            const chunks = buffer.split("\n\n");
+            buffer = chunks.pop(); // keep incomplete trailing chunk
+
+            for (const chunk of chunks) {
+              if (!chunk.trim()) continue;
+
+              let eventType = "message";
+              let dataLine = "";
+
+              for (const line of chunk.split("\n")) {
+                if (line.startsWith("event: "))
+                  eventType = line.slice(7).trim();
+                if (line.startsWith("data: ")) dataLine = line.slice(6).trim();
+              }
+
+              if (!dataLine) continue;
+
+              let data;
+              try {
+                data = JSON.parse(dataLine);
+              } catch {
+                continue;
+              }
+
+              switch (eventType) {
+                case "step":
+                  onStep(data);
+                  break;
+                case "decomposition":
+                  onDecomposition(data);
+                  break;
+                case "search_start":
+                  onSearchStart(data);
+                  break;
+                case "search_done":
+                  onSearchDone(data);
+                  break;
+                case "result":
+                  onResult(data);
+                  break;
+                case "error":
+                  showError(data.message);
+                  break;
+                case "done":
+                  break;
+              }
+            }
+          }
+        } catch (err) {
+          showError(
+            "Connection error: " +
+              err.message +
+              " — Make sure the server is running on port 8000.",
+          );
+        } finally {
+          btn.disabled = false;
+        }
+      }
+
+      document.getElementById("query").addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+          e.preventDefault();
+          runResearch();
+        }
+      });
+
+      function escHtml(s) {
+        return s
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+    </script>
+  </body>
+</html>

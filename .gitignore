@@ -1,0 +1,16 @@
+# Environment — never commit this
+.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.Python
+
+# Backup files
+*.bak
+
+# OS
+.DS_Store
+Thumbs.db
