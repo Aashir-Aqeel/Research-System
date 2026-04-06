@@ -1,112 +1,184 @@
-# Central Research System — Light Research
+---
+title: Research System
+emoji: 🔬
+colorFrom: green
+colorTo: blue
+sdk: docker
+pinned: false
+---
 
-A local research engine powered by OpenAI GPT-4o with web search.
+# Central Research System — by Ragioneer
 
-## Stack
+A self-hosted research engine that thinks before it searches. Built on **Azure OpenAI + Serper + Playwright**, it runs recursive multi-round research pipelines and produces structured, cited reports.
 
-- **Backend**: Python + FastAPI (async)
-- **Frontend**: Plain HTML/CSS/JS (no build step)
-- **AI**: OpenAI Responses API with `web_search_preview`
-- **Streaming**: Server-Sent Events (SSE)
+> **Live demo:** [aashir-aqeel-research-system.hf.space](https://aashir-aqeel-research-system.hf.space)
 
-## How the pipeline works
+---
+
+## Research Modes
+
+| Mode       | Rounds  | Browser       | Academic       | Output                           |
+| ---------- | ------- | ------------- | -------------- | -------------------------------- |
+| **Light**  | 1 pass  | —             | —              | 400–600 word answer              |
+| **Medium** | Up to 4 | —             | —              | 900–1300 word structured report  |
+| **Deep**   | Up to 8 | ✅ Playwright | ✅ auto-detect | 1500–2500 word report + download |
+
+---
+
+## How the Pipeline Works
 
 ```
 Your question
-    │
-    ▼
-[Step 1+2] GPT-4o reasons about your question and breaks it into 3–5 sub-queries
-    │
-    ▼
-[Step 3]   All sub-queries fire in PARALLEL via asyncio.as_completed()
-           Each one uses OpenAI's built-in web_search_preview tool
-    │
-    ▼
-[Step 4]   GPT-4o synthesizes all results into one coherent answer
-    │
-    ▼
-Final answer with cited sources
+      │
+      ▼
+[Steps 1+2]  Azure GPT reasons and breaks into 3–6 targeted sub-queries
+      │
+      ▼
+[Step 3]     All sub-queries fire in PARALLEL
+             ├── Serper Search  → 10 real Google results per query
+             ├── Source filter  → blocked domains removed, scored by
+             │                    authority tier + recency + quality
+             ├── Serper Scrape  → top results get full page content
+             │                    (headless browser via Serper API)
+             └── [Deep only]    → Playwright browser for JS-heavy pages
+                                   + arXiv/Semantic Scholar for academic queries
+      │
+      ▼
+[Step 4]     Azure GPT synthesizes into a structured answer/report
+             with confidence assessment, source flagging, and optional
+             comparison tables
+      │
+      ▼  [Medium/Deep only — repeat with gap detection]
+[Gap Analysis]  GPT evaluates what's missing → generates follow-up queries
+             → loops back to Step 3 until confidence ≥ 85% or max rounds
 ```
+
+Everything streams to the browser in real time via **Server-Sent Events**.
+
+---
+
+## Key Features
+
+- **Source quality scoring** — 80+ Tier 1 domains (academic, government, major press), blocked list for SEO farms and social media
+- **Full page scraping** — Serper's headless browser reads real article content, not 2-line snippets
+- **Playwright browser** (Deep mode) — handles JS-rendered pages, bot detection, government databases
+- **Academic search** — arXiv + Semantic Scholar APIs for scientific queries (auto-detected)
+- **Confidence calibration** — calibrated rubric prevents the common LLM anchor to 0.75-0.80
+- **Strategy pivots** — gap analysis detects when an approach is failing and switches strategy
+- **Comparison table detection** — honors explicit table requests in synthesis
+- **Pakistan pricing awareness** — auto-injects PSEB, PriceOye, Hamariweb for local queries
+- **Epistemic honesty** — single-source claims flagged, conflicting info noted, paywalls acknowledged
+- **Downloadable reports** — Deep Research exports full markdown with citations
+- **Ragioneer-branded UI** — dark theme, Syne typography, real-time pipeline visualization
+
+---
+
+## Stack
+
+| Layer     | Technology                                            |
+| --------- | ----------------------------------------------------- |
+| Backend   | Python 3.11+ · FastAPI · asyncio                      |
+| LLM       | Azure OpenAI GPT-4o (Chat Completions API)            |
+| Search    | Serper — Google Search API                            |
+| Scraping  | Serper `/scrape` — headless browser                   |
+| Browser   | Playwright (Chromium, sync API in ThreadPoolExecutor) |
+| Academic  | arXiv API + Semantic Scholar API (free, no key)       |
+| Streaming | Server-Sent Events (SSE)                              |
+| Frontend  | Vanilla HTML/CSS/JS — no build step                   |
 
 ---
 
 ## Setup
 
-### 1. Clone / copy this folder to your machine
-
-### 2. Create a virtual environment
+### 1. Clone
 
 ```bash
-cd research_system
+git clone https://github.com/Aashir-Aqeel/Research-System.git
+cd Research-System
+```
+
+### 2. Virtual environment
+
+```bash
 python -m venv venv
-
-# Activate it:
-# macOS / Linux:
-source venv/bin/activate
-
-# Windows:
-venv\Scripts\activate
+source venv/bin/activate      # macOS/Linux
+venv\Scripts\activate         # Windows
 ```
 
 ### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
+playwright install chromium
 ```
 
-### 4. (Optional) Set your API key via .env
+### 4. Configure `.env`
 
 ```bash
 cp .env.example .env
-# Edit .env and paste your OpenAI API key
 ```
 
-> You can also just type the key directly in the browser UI — it is never stored.
+Fill in:
 
-### 5. Run the server
+```env
+AZURE_OPENAI_KEY=your-azure-key
+AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com
+AZURE_OPENAI_DEPLOYMENT=gpt-4o
+AZURE_OPENAI_API_VERSION=2024-08-01-preview
+SERPER_API_KEY=your-serper-key
+BROWSER_HEADLESS=true
+```
+
+**Where to find these:**
+
+- Azure key + endpoint → Azure Portal → your OpenAI resource → Keys and Endpoint
+- Deployment name → Azure OpenAI Studio → Deployments
+- Serper key → [serper.dev](https://serper.dev) (free tier: 2,500 searches/month)
+
+### 5. Run
 
 ```bash
 python main.py
 ```
 
-Or with uvicorn directly:
-
-```bash
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-```
-
-### 6. Open the app
-
-Visit: http://localhost:8000
+Open: `http://localhost:8000`
 
 ---
 
-## Project structure
+## Project Structure
 
 ```
-research_system/
-├── main.py              ← FastAPI backend (all research logic)
-├── requirements.txt     ← Python dependencies
-├── .env.example         ← Copy to .env and add your API key
+Research-System/
+├── main.py              ← FastAPI backend — all pipeline logic (3,100+ lines)
+├── requirements.txt     ← 5 dependencies
+├── .env.example         ← Copy to .env
+├── Dockerfile           ← For HF Spaces / Docker deployment
 ├── README.md
 └── static/
-    └── index.html       ← Frontend (single file, no build needed)
+    └── index.html       ← Frontend — single file, no build needed
 ```
 
 ---
 
-## Requirements
+## Roadmap
 
-- Python 3.11+
-- An OpenAI API key with access to `gpt-4o` and `web_search_preview`
-  (web_search_preview requires a paid OpenAI account)
+| Mode                            | Status  |
+| ------------------------------- | ------- |
+| Light Research                  | ✅ Live |
+| Medium Research                 | ✅ Live |
+| Deep Research                   | ✅ Live |
+| Computer Use (Playwright agent) | 🔨 Next |
 
 ---
 
-## Next steps (planned modes)
+## Cost Per Query (Approximate)
 
-| Mode         | Description                                             |
-| ------------ | ------------------------------------------------------- |
-| Medium       | Recursive light research with gap detection (3–5 loops) |
-| Deep         | Higher loop cap + full browser navigation               |
-| Computer Use | Playwright agent for interactive web automation         |
+| Mode   | Azure tokens | Serper credits         | Time      |
+| ------ | ------------ | ---------------------- | --------- |
+| Light  | ~24,000      | 5 search + 15 scrape   | ~30s      |
+| Medium | ~80,000      | 20 search + 60 scrape  | ~2-3 min  |
+| Deep   | ~200,000     | 40 search + 120 scrape | ~5-15 min |
+
+---
+
+Built by [Ragioneer](https://ragioneer.com) — Mission-Driven AI Systems
