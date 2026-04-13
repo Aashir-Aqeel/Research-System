@@ -18,7 +18,6 @@
         margin: 0;
         padding: 0;
       }
-
       :root {
         --bg: #080c14;
         --bg-2: #0d1220;
@@ -28,27 +27,22 @@
         --border: rgba(255, 255, 255, 0.07);
         --border-md: rgba(255, 255, 255, 0.13);
         --border-accent: rgba(99, 179, 237, 0.3);
-
         --text: #f0f4ff;
         --text-2: #94a3b8;
         --text-3: #4a5a78;
-
         --accent: #63b3ed;
         --accent-dim: rgba(99, 179, 237, 0.12);
         --accent-glow: rgba(99, 179, 237, 0.06);
-
         --green: #48bb78;
         --green-dim: rgba(72, 187, 120, 0.12);
         --amber: #ed8936;
         --amber-dim: rgba(237, 137, 54, 0.12);
         --red: #fc8181;
         --red-dim: rgba(252, 129, 129, 0.1);
-
         --radius: 10px;
         --radius-sm: 7px;
         --radius-lg: 14px;
       }
-
       body {
         font-family:
           "Inter",
@@ -61,8 +55,6 @@
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
       }
-
-      /* ── Top nav ── */
       .nav {
         position: sticky;
         top: 0;
@@ -76,14 +68,12 @@
         align-items: center;
         justify-content: space-between;
       }
-
       .nav-logo {
         display: flex;
         align-items: center;
         gap: 10px;
         text-decoration: none;
       }
-
       .nav-logo-mark {
         width: 28px;
         height: 28px;
@@ -98,7 +88,6 @@
         color: #fff;
         letter-spacing: -0.5px;
       }
-
       .nav-brand {
         font-family: "Syne", sans-serif;
         font-weight: 700;
@@ -106,20 +95,17 @@
         color: var(--text);
         letter-spacing: -0.3px;
       }
-
       .nav-product {
         font-size: 11px;
         color: var(--text-3);
         font-weight: 400;
         margin-left: 2px;
       }
-
       .nav-right {
         display: flex;
         align-items: center;
         gap: 8px;
       }
-
       .status-dot {
         width: 7px;
         height: 7px;
@@ -127,24 +113,18 @@
         background: var(--green);
         box-shadow: 0 0 6px var(--green);
       }
-
       .status-label {
         font-size: 11px;
         color: var(--text-3);
       }
-
-      /* ── Main layout ── */
       .app {
         max-width: 820px;
         margin: 0 auto;
         padding: 2.5rem 1.5rem 6rem;
       }
-
-      /* ── Header ── */
       .header {
         margin-bottom: 2.5rem;
       }
-
       .header-eyebrow {
         font-size: 11px;
         font-weight: 600;
@@ -153,7 +133,6 @@
         color: var(--accent);
         margin-bottom: 10px;
       }
-
       .header-title {
         font-family: "Syne", sans-serif;
         font-size: 28px;
@@ -163,15 +142,12 @@
         line-height: 1.2;
         margin-bottom: 8px;
       }
-
       .header-subtitle {
         font-size: 13px;
         color: var(--text-2);
         line-height: 1.6;
         max-width: 520px;
       }
-
-      /* ── Mode tabs ── */
       .mode-tabs {
         display: flex;
         gap: 2px;
@@ -182,7 +158,6 @@
         padding: 4px;
         width: fit-content;
       }
-
       .mode-tab {
         font-size: 12px;
         font-weight: 500;
@@ -201,23 +176,15 @@
           background 0.15s;
         white-space: nowrap;
       }
-
-      .mode-tab:hover:not(.locked):not(.active) {
+      .mode-tab:hover:not(.active) {
         color: var(--text-2);
         background: var(--surface-2);
       }
-
       .mode-tab.active {
         color: var(--text);
         background: var(--surface-2);
         border: 1px solid var(--border-md);
       }
-
-      .mode-tab.locked {
-        opacity: 0.3;
-        cursor: not-allowed;
-      }
-
       .dot {
         width: 6px;
         height: 6px;
@@ -236,15 +203,12 @@
       .dot-comp {
         background: #b794f4;
       }
-
-      /* ── Service status ── */
       .service-bar {
         display: flex;
         gap: 6px;
         margin-bottom: 1.25rem;
         flex-wrap: wrap;
       }
-
       .service-pill {
         display: flex;
         align-items: center;
@@ -257,7 +221,6 @@
         background: var(--surface);
         color: var(--text-3);
       }
-
       .service-pill .pip {
         width: 5px;
         height: 5px;
@@ -265,7 +228,6 @@
         background: var(--text-3);
         flex-shrink: 0;
       }
-
       .service-pill.ready {
         border-color: rgba(72, 187, 120, 0.25);
         background: var(--green-dim);
@@ -283,21 +245,17 @@
       .service-pill.missing .pip {
         background: var(--amber);
       }
-
       .service-detail {
         font-weight: 400;
         opacity: 0.7;
         margin-left: 1px;
       }
-
-      /* ── Search bar ── */
       .search-bar {
         display: flex;
         gap: 10px;
         margin-bottom: 1.5rem;
         align-items: flex-end;
       }
-
       textarea {
         flex: 1;
         padding: 13px 16px;
@@ -315,16 +273,13 @@
           border-color 0.15s,
           box-shadow 0.15s;
       }
-
       textarea:focus {
         border-color: var(--border-accent);
         box-shadow: 0 0 0 3px var(--accent-glow);
       }
-
       textarea::placeholder {
         color: var(--text-3);
       }
-
       .run-btn {
         padding: 0 22px;
         font-size: 13px;
@@ -343,7 +298,6 @@
           transform 0.1s,
           box-shadow 0.15s;
       }
-
       .run-btn:hover {
         opacity: 0.88;
         box-shadow: 0 0 20px rgba(99, 179, 237, 0.25);
@@ -357,15 +311,12 @@
         transform: none;
         box-shadow: none;
       }
-
-      /* ── Pipeline steps ── */
       .pipeline {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 6px;
         margin-bottom: 1.25rem;
       }
-
       .step-card {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -375,7 +326,6 @@
           border-color 0.2s,
           background 0.2s;
       }
-
       .step-card.active {
         border-color: var(--border-accent);
         background: var(--accent-dim);
@@ -383,7 +333,6 @@
       .step-card.done {
         border-color: rgba(72, 187, 120, 0.2);
       }
-
       .step-num {
         font-size: 9px;
         font-weight: 600;
@@ -392,14 +341,12 @@
         letter-spacing: 0.08em;
         margin-bottom: 4px;
       }
-
       .step-name {
         font-size: 12px;
         font-weight: 500;
         color: var(--text);
         margin-bottom: 3px;
       }
-
       .step-status {
         font-size: 11px;
         color: var(--text-3);
@@ -411,8 +358,6 @@
       .step-status.done {
         color: var(--green);
       }
-
-      /* ── Thought panel ── */
       .thought-panel {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -424,7 +369,6 @@
       .thought-panel.visible {
         display: block;
       }
-
       .panel-label {
         font-size: 10px;
         font-weight: 600;
@@ -433,14 +377,12 @@
         color: var(--text-3);
         margin-bottom: 10px;
       }
-
       .thought-list {
         list-style: none;
         display: flex;
         flex-direction: column;
         gap: 5px;
       }
-
       .thought-item {
         font-size: 12px;
         color: var(--text-2);
@@ -450,14 +392,11 @@
         line-height: 1.5;
         border: 1px solid var(--border);
       }
-
       .thought-item.reasoning {
         background: var(--accent-dim);
         border-color: var(--border-accent);
         color: var(--accent);
       }
-
-      /* ── Search chips ── */
       .search-grid {
         display: none;
         grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -467,7 +406,6 @@
       .search-grid.visible {
         display: grid;
       }
-
       .search-chip {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -481,7 +419,6 @@
       .search-chip.done {
         border-color: rgba(72, 187, 120, 0.25);
       }
-
       .chip-label {
         font-size: 9px;
         font-weight: 600;
@@ -496,21 +433,18 @@
       .chip-label.done {
         color: var(--green);
       }
-
       .chip-query {
         font-size: 11px;
         color: var(--text);
         line-height: 1.4;
         font-weight: 500;
       }
-
       .chip-sources {
         margin-top: 6px;
         display: flex;
         flex-wrap: wrap;
         gap: 3px;
       }
-
       .tier-badge {
         font-size: 9px;
         font-weight: 600;
@@ -529,8 +463,6 @@
         color: var(--text-3);
         border: 1px solid var(--border);
       }
-
-      /* ── Medium Research elements ── */
       .round-banner {
         background: var(--amber-dim);
         border: 1px solid rgba(237, 137, 54, 0.25);
@@ -544,7 +476,6 @@
         align-items: center;
         gap: 7px;
       }
-
       .gap-panel {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -556,7 +487,6 @@
       .gap-panel.visible {
         display: block;
       }
-
       .gap-label {
         font-size: 10px;
         font-weight: 600;
@@ -565,27 +495,23 @@
         color: var(--amber);
         margin-bottom: 8px;
       }
-
       .gap-text {
         font-size: 12px;
         color: var(--text-2);
         line-height: 1.5;
         margin-bottom: 10px;
       }
-
       .confidence-bar-wrap {
         display: flex;
         align-items: center;
         gap: 8px;
         margin-bottom: 10px;
       }
-
       .confidence-label {
         font-size: 10px;
         color: var(--text-3);
         white-space: nowrap;
       }
-
       .confidence-bar {
         flex: 1;
         height: 3px;
@@ -593,14 +519,12 @@
         border-radius: 2px;
         overflow: hidden;
       }
-
       .confidence-fill {
         height: 100%;
         background: var(--green);
         border-radius: 2px;
         transition: width 0.5s ease;
       }
-
       .confidence-pct {
         font-size: 10px;
         font-weight: 600;
@@ -608,13 +532,11 @@
         min-width: 28px;
         text-align: right;
       }
-
       .gap-queries {
         display: flex;
         flex-direction: column;
         gap: 4px;
       }
-
       .gap-query-item {
         font-size: 11px;
         color: var(--text-3);
@@ -623,7 +545,6 @@
         border-radius: 4px;
         border: 1px solid var(--border);
       }
-
       .early-stop-badge {
         display: inline-flex;
         align-items: center;
@@ -637,8 +558,6 @@
         border: 1px solid rgba(72, 187, 120, 0.2);
         margin-bottom: 8px;
       }
-
-      /* ── Error ── */
       .error-msg {
         background: var(--red-dim);
         border: 1px solid rgba(252, 129, 129, 0.25);
@@ -652,8 +571,6 @@
       .error-msg.visible {
         display: block;
       }
-
-      /* ── Result panel ── */
       .result-panel {
         background: var(--surface);
         border: 1px solid var(--border);
@@ -664,7 +581,6 @@
       .result-panel.visible {
         display: block;
       }
-
       .result-header {
         display: flex;
         align-items: center;
@@ -673,7 +589,6 @@
         padding-bottom: 12px;
         border-bottom: 1px solid var(--border);
       }
-
       .result-title {
         font-size: 10px;
         font-weight: 600;
@@ -681,19 +596,15 @@
         letter-spacing: 0.08em;
         color: var(--accent);
       }
-
       .result-meta {
         font-size: 11px;
         color: var(--text-3);
       }
-
-      /* ── Report body (Medium) ── */
       .report-body {
         font-size: 14px;
         line-height: 1.78;
         color: var(--text-2);
       }
-
       .report-body h2 {
         font-family: "Syne", sans-serif;
         font-size: 15px;
@@ -704,17 +615,13 @@
         border-bottom: 1px solid var(--border);
         letter-spacing: -0.2px;
       }
-
       .report-body h2:first-child {
         margin-top: 0;
       }
-
       .report-body p {
         margin-bottom: 0.85rem;
         color: var(--text-2);
       }
-
-      /* ── Sources ── */
       .sources-row {
         margin-top: 16px;
         padding-top: 14px;
@@ -724,7 +631,6 @@
         gap: 5px;
         align-items: center;
       }
-
       .sources-label {
         font-size: 10px;
         color: var(--text-3);
@@ -733,7 +639,6 @@
         font-weight: 600;
         margin-right: 3px;
       }
-
       .source-pill {
         font-size: 11px;
         padding: 2px 9px;
@@ -746,7 +651,6 @@
           border-color 0.15s,
           color 0.15s;
       }
-
       .source-pill:hover {
         border-color: var(--border-md);
         color: var(--text-2);
@@ -758,8 +662,6 @@
       .source-pill.tier1:hover {
         border-color: rgba(72, 187, 120, 0.4);
       }
-
-      /* ── Deep Research ── */
       .academic-panel {
         background: var(--surface);
         border: 1px solid rgba(183, 148, 244, 0.25);
@@ -771,7 +673,6 @@
       .academic-panel.visible {
         display: block;
       }
-
       .academic-label {
         font-size: 10px;
         font-weight: 600;
@@ -780,7 +681,6 @@
         color: #b794f4;
         margin-bottom: 10px;
       }
-
       .paper-item {
         padding: 8px 10px;
         background: var(--bg-3);
@@ -788,7 +688,6 @@
         border: 1px solid var(--border);
         margin-bottom: 6px;
       }
-
       .paper-title {
         font-size: 12px;
         font-weight: 500;
@@ -796,12 +695,10 @@
         line-height: 1.4;
         margin-bottom: 3px;
       }
-
       .paper-meta {
         font-size: 11px;
         color: var(--text-3);
       }
-
       .paper-badge {
         display: inline-block;
         font-size: 9px;
@@ -812,7 +709,6 @@
         letter-spacing: 0.04em;
         margin-right: 4px;
       }
-
       .paper-badge.arxiv {
         background: rgba(235, 137, 54, 0.15);
         color: #ed8936;
@@ -823,7 +719,6 @@
         color: #b794f4;
         border: 1px solid rgba(183, 148, 244, 0.2);
       }
-
       .download-btn {
         display: inline-flex;
         align-items: center;
@@ -841,29 +736,260 @@
         text-decoration: none;
         transition: background 0.15s;
       }
-
       .download-btn:hover {
         background: rgba(99, 179, 237, 0.2);
       }
-
-      /* ── Footer ── */
+      .cu-input-section {
+        display: none;
+        margin-bottom: 1.5rem;
+      }
+      .cu-input-section.visible {
+        display: block;
+      }
+      .cu-url-row {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+        align-items: center;
+      }
+      .cu-url-label {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--text-3);
+        white-space: nowrap;
+      }
+      .cu-url-input {
+        flex: 1;
+        padding: 8px 12px;
+        font-size: 13px;
+        font-family: inherit;
+        border: 1px solid var(--border-md);
+        border-radius: var(--radius-sm);
+        background: var(--surface);
+        color: var(--text);
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      .cu-url-input:focus {
+        border-color: var(--border-accent);
+      }
+      .cu-url-input::placeholder {
+        color: var(--text-3);
+      }
+      .agent-panel {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 14px 16px;
+        margin-bottom: 1rem;
+        display: none;
+      }
+      .agent-panel.visible {
+        display: block;
+      }
+      .agent-label {
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #b794f4;
+        margin-bottom: 10px;
+      }
+      .agent-plan-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin-bottom: 8px;
+      }
+      .agent-plan-step {
+        font-size: 12px;
+        color: var(--text-2);
+        padding: 5px 8px;
+        background: var(--bg-3);
+        border-radius: 4px;
+        border: 1px solid var(--border);
+      }
+      .agent-step-feed {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        max-height: 280px;
+        overflow-y: auto;
+      }
+      .agent-step-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-size: 12px;
+        color: var(--text-2);
+        padding: 5px 8px;
+        border-radius: 4px;
+        border-left: 2px solid var(--border);
+      }
+      .agent-step-item.navigate {
+        border-left-color: var(--accent);
+      }
+      .agent-step-item.click {
+        border-left-color: var(--green);
+      }
+      .agent-step-item.type {
+        border-left-color: var(--amber);
+      }
+      .agent-step-item.extract {
+        border-left-color: #b794f4;
+      }
+      .agent-step-item.done {
+        border-left-color: var(--green);
+        background: var(--green-dim);
+      }
+      .agent-step-item.failed,
+      .agent-step-item.error {
+        border-left-color: var(--red);
+      }
+      .agent-step-item.failed {
+        background: var(--red-dim);
+      }
+      .agent-step-item.compile {
+        border-left-color: var(--accent);
+      }
+      .agent-step-num {
+        font-size: 9px;
+        font-weight: 600;
+        color: var(--text-3);
+        min-width: 22px;
+        padding-top: 1px;
+      }
+      .agent-step-action {
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-3);
+        min-width: 60px;
+        padding-top: 1px;
+      }
+      .agent-step-desc {
+        flex: 1;
+        line-height: 1.4;
+      }
+      .agent-extract-panel {
+        margin-top: 8px;
+        padding: 8px 10px;
+        background: rgba(183, 148, 244, 0.08);
+        border: 1px solid rgba(183, 148, 244, 0.2);
+        border-radius: 5px;
+        font-size: 11px;
+        color: #b794f4;
+        font-family: monospace;
+        white-space: pre-wrap;
+        max-height: 120px;
+        overflow-y: auto;
+      }
+      .screenshot-trail {
+        display: none;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+      }
+      .screenshot-trail.visible {
+        display: flex;
+      }
+      .screenshot-thumb {
+        width: 120px;
+        height: 75px;
+        object-fit: cover;
+        border-radius: 4px;
+        border: 1px solid var(--border);
+        cursor: pointer;
+        transition: border-color 0.15s;
+      }
+      .screenshot-thumb:hover {
+        border-color: var(--accent);
+      }
+      .screenshot-lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .screenshot-lightbox.visible {
+        display: flex;
+      }
+      .screenshot-lightbox img {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+      }
+      .cu-result-panel {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 20px 22px;
+        display: none;
+      }
+      .cu-result-panel.visible {
+        display: block;
+      }
+      .cu-result-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+      .cu-result-title {
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #b794f4;
+      }
+      .cu-result-meta {
+        font-size: 11px;
+        color: var(--text-3);
+      }
+      .cu-result-body {
+        font-size: 14px;
+        line-height: 1.75;
+        color: var(--text-2);
+      }
+      .cu-result-body h2 {
+        font-family: "Syne", sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text);
+        margin: 1.25rem 0 0.5rem;
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--border);
+      }
+      .cu-result-body h2:first-child {
+        margin-top: 0;
+      }
+      .cu-result-body p {
+        margin-bottom: 0.8rem;
+      }
       .footer {
         text-align: center;
         margin-top: 3rem;
         padding-top: 1.5rem;
         border-top: 1px solid var(--border);
       }
-
       .footer-text {
         font-size: 11px;
         color: var(--text-3);
       }
-
       .footer-text a {
         color: var(--accent);
         text-decoration: none;
       }
-
       @media (max-width: 600px) {
         .pipeline {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -882,13 +1008,12 @@
     </style>
   </head>
   <body>
-    <!-- Nav -->
     <nav class="nav">
       <a class="nav-logo" href="https://ragioneer.com" target="_blank">
         <div class="nav-logo-mark">R</div>
         <div>
-          <span class="nav-brand">Ragioneer</span>
-          <span class="nav-product"> / Research</span>
+          <span class="nav-brand">Ragioneer</span
+          ><span class="nav-product"> / Research</span>
         </div>
       </a>
       <div class="nav-right">
@@ -897,66 +1022,82 @@
       </div>
     </nav>
 
-    <!-- App -->
     <div class="app">
-      <!-- Header -->
       <div class="header">
         <div class="header-eyebrow">Intelligence Infrastructure</div>
         <h1 class="header-title">Research System</h1>
         <p class="header-subtitle" id="subtitle">
-          Chain-of-thought decomposition → parallel web search & scrape →
+          Chain-of-thought decomposition → parallel web search &amp; scrape →
           synthesized answer
         </p>
       </div>
 
-      <!-- Mode tabs -->
       <div class="mode-tabs">
-        <button
-          class="mode-tab active"
-          id="tabLight"
-          onclick="setMode('light')"
-        >
+        <button class="mode-tab active" id="tabLight">
           <span class="dot dot-light"></span>Light
         </button>
-        <button class="mode-tab" id="tabMedium" onclick="setMode('medium')">
+        <button class="mode-tab" id="tabMedium">
           <span class="dot dot-medium"></span>Medium
         </button>
-        <button class="mode-tab" id="tabDeep" onclick="setMode('deep')">
+        <button class="mode-tab" id="tabDeep">
           <span class="dot dot-deep"></span>Deep
         </button>
-        <button class="mode-tab locked">
+        <button class="mode-tab" id="tabComputerUse">
           <span class="dot dot-comp"></span>Computer Use
         </button>
       </div>
 
-      <!-- Service status -->
       <div class="service-bar" id="serviceBar">
         <div class="service-pill" id="pillAzure">
-          <span class="pip"></span>
-          <span>Azure OpenAI</span>
-          <span class="service-detail" id="pillAzureDetail">checking...</span>
+          <span class="pip"></span><span>Azure OpenAI</span
+          ><span class="service-detail" id="pillAzureDetail">checking...</span>
         </div>
         <div class="service-pill" id="pillSerper">
-          <span class="pip"></span>
-          <span>Serper</span>
-          <span class="service-detail" id="pillSerperDetail">checking...</span>
+          <span class="pip"></span><span>Serper</span
+          ><span class="service-detail" id="pillSerperDetail">checking...</span>
+        </div>
+        <div class="service-pill" id="pillScrapingBee">
+          <span class="pip"></span><span>ScrapingBee</span
+          ><span class="service-detail" id="pillScrapingBeeDetail"
+            >checking...</span
+          >
+        </div>
+        <div class="service-pill" id="pillBrowserless">
+          <span class="pip"></span><span>Browserless</span
+          ><span class="service-detail" id="pillBrowserlessDetail"
+            >checking...</span
+          >
+        </div>
+        <div class="service-pill" id="pillScraperAPI">
+          <span class="pip"></span><span>ScraperAPI</span
+          ><span class="service-detail" id="pillScraperAPIDetail"
+            >checking...</span
+          >
         </div>
       </div>
 
-      <!-- Search -->
+      <div class="cu-input-section" id="cuInputSection">
+        <div class="cu-url-row">
+          <span class="cu-url-label">Start URL</span>
+          <input
+            type="url"
+            class="cu-url-input"
+            id="cuStartUrl"
+            placeholder="https://example.com (optional — agent will navigate as needed)"
+          />
+        </div>
+      </div>
+
       <div class="search-bar">
         <textarea
           id="query"
           placeholder="Ask anything — e.g. What are the latest breakthroughs in solid-state battery technology?"
           rows="2"
         ></textarea>
-        <button class="run-btn" id="runBtn" onclick="runResearch()">
-          Research ↗
-        </button>
+        <button class="run-btn" id="runBtn">Research ↗</button>
       </div>
 
-      <!-- Pipeline -->
-      <div class="pipeline">
+      <div class="pipeline" id="pipeline">
         <div class="step-card" id="step1">
           <div class="step-num">Step 01</div>
           <div class="step-name">Chain-of-thought</div>
@@ -969,7 +1110,7 @@
         </div>
         <div class="step-card" id="step3">
           <div class="step-num">Step 03</div>
-          <div class="step-name">Search, scrape & rank</div>
+          <div class="step-name">Search, scrape &amp; rank</div>
           <div class="step-status" id="s3">Waiting</div>
         </div>
         <div class="step-card" id="step4">
@@ -979,19 +1120,13 @@
         </div>
       </div>
 
-      <!-- Thought panel -->
       <div class="thought-panel" id="thoughtPanel">
-        <div class="panel-label">Reasoning & sub-questions</div>
+        <div class="panel-label">Reasoning &amp; sub-questions</div>
         <ul class="thought-list" id="thoughtList"></ul>
       </div>
-
-      <!-- Search chips -->
       <div class="search-grid" id="searchGrid"></div>
-
-      <!-- Round tracker (Medium) -->
       <div id="roundTracker" style="display: none; margin-bottom: 1rem"></div>
 
-      <!-- Gap panel (Medium) -->
       <div class="gap-panel" id="gapPanel">
         <div class="gap-label">Gap analysis</div>
         <div class="gap-text" id="gapText"></div>
@@ -1005,26 +1140,47 @@
         <div class="gap-queries" id="gapQueries"></div>
       </div>
 
-      <!-- Academic panel (Deep Research) -->
       <div class="academic-panel" id="academicPanel">
         <div class="academic-label">Academic literature</div>
         <div id="academicList"></div>
       </div>
+      <div class="agent-panel" id="agentPlanPanel">
+        <div class="agent-label">Task plan</div>
+        <div class="agent-plan-steps" id="agentPlanSteps"></div>
+      </div>
+      <div class="agent-panel" id="agentFeedPanel">
+        <div class="agent-label">Agent actions — live</div>
+        <div class="agent-step-feed" id="agentStepFeed"></div>
+        <div
+          class="agent-extract-panel"
+          id="agentExtractPanel"
+          style="display: none"
+        ></div>
+      </div>
 
-      <!-- Error -->
+      <div class="cu-result-panel" id="cuResultPanel">
+        <div class="cu-result-header">
+          <span class="cu-result-title">Agent Result</span
+          ><span class="cu-result-meta" id="cuResultMeta"></span>
+        </div>
+        <div class="cu-result-body" id="cuResultBody"></div>
+        <div class="screenshot-trail" id="screenshotTrail"></div>
+      </div>
+
+      <div class="screenshot-lightbox" id="screenshotLightbox">
+        <img id="lightboxImg" src="" alt="screenshot" />
+      </div>
       <div class="error-msg" id="errorMsg"></div>
 
-      <!-- Result -->
       <div class="result-panel" id="resultPanel">
         <div class="result-header">
-          <span class="result-title" id="resultTitle">Synthesized Answer</span>
-          <span class="result-meta" id="resultMeta"></span>
+          <span class="result-title" id="resultTitle">Synthesized Answer</span
+          ><span class="result-meta" id="resultMeta"></span>
         </div>
         <div class="report-body" id="resultBody"></div>
         <div class="sources-row" id="sourcesRow"></div>
       </div>
 
-      <!-- Footer -->
       <div class="footer">
         <p class="footer-text">
           Built by
@@ -1035,524 +1191,845 @@
     </div>
 
     <script>
-      const API_BASE =
-        window.location.hostname === "localhost" ||
-        window.location.hostname === "127.0.0.1"
-          ? "http://localhost:8000"
-          : "";
+      (function () {
+        "use strict";
 
-      let currentMode = "light";
+        // ── Config ──────────────────────────────────────────────────────────────────
+        var _host = window.location.hostname;
+        var _port = window.location.port;
+        var _local =
+          _host === "localhost" || _host === "127.0.0.1" || _host === "0.0.0.0";
+        var API_BASE = _local ? "http://localhost:" + (_port || "8000") : "";
 
-      // ── Mode switching ──────────────────────────────────────────────────────────
+        var currentMode = "light";
 
-      function setMode(mode) {
-        currentMode = mode;
-        document
-          .querySelectorAll(".mode-tab:not(.locked)")
-          .forEach((t) => t.classList.remove("active"));
-        const tab = document.getElementById(
-          "tab" + mode.charAt(0).toUpperCase() + mode.slice(1),
-        );
-        if (tab) tab.classList.add("active");
-
-        const subtitles = {
-          light:
-            "Chain-of-thought decomposition → parallel web search & scrape → synthesized answer",
-          medium:
-            "Recursive research up to 4 rounds → gap detection → structured long-form report",
-          deep: "Up to 8 rounds · Playwright browser · academic search · exportable 2000-word report",
-        };
-        document.getElementById("subtitle").textContent = subtitles[mode] || "";
-        resetUI();
-      }
-
-      // ── Config check ────────────────────────────────────────────────────────────
-
-      async function checkConfig() {
-        try {
-          const res = await fetch(`${API_BASE}/config`);
-          const data = await res.json();
-
-          const azurePill = document.getElementById("pillAzure");
-          const azureDetail = document.getElementById("pillAzureDetail");
-          if (data.azure_ready) {
-            azurePill.className = "service-pill ready";
-            azureDetail.textContent = data.deployment || "connected";
-          } else {
-            azurePill.className = "service-pill missing";
-            azureDetail.textContent = "not configured";
-          }
-
-          const serperPill = document.getElementById("pillSerper");
-          const serperDetail = document.getElementById("pillSerperDetail");
-          if (data.serper_ready) {
-            serperPill.className = "service-pill ready";
-            serperDetail.textContent = "google.serper.dev";
-          } else {
-            serperPill.className = "service-pill missing";
-            serperDetail.textContent = "not configured";
-          }
-        } catch {
-          /* server not up yet */
+        // ── Helpers ─────────────────────────────────────────────────────────────────
+        function esc(s) {
+          return String(s)
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;");
         }
-      }
 
-      checkConfig();
+        function setStep(n, state, text) {
+          document.getElementById("step" + n).className =
+            "step-card " + (state || "");
+          var s = document.getElementById("s" + n);
+          s.className = "step-status " + (state || "");
+          s.textContent = text;
+        }
 
-      // ── UI helpers ──────────────────────────────────────────────────────────────
+        function showError(msg) {
+          var el = document.getElementById("errorMsg");
+          el.textContent = msg;
+          el.className = "error-msg visible";
+        }
 
-      function setStep(n, state, text) {
-        document.getElementById("step" + n).className =
-          "step-card " + (state || "");
-        const s = document.getElementById("s" + n);
-        s.className = "step-status " + (state || "");
-        s.textContent = text;
-      }
-
-      function showError(msg) {
-        const el = document.getElementById("errorMsg");
-        el.textContent = msg;
-        el.className = "error-msg visible";
-      }
-
-      function resetUI() {
-        document.getElementById("errorMsg").className = "error-msg";
-        document.getElementById("thoughtPanel").className = "thought-panel";
-        document.getElementById("thoughtList").innerHTML = "";
-        document.getElementById("searchGrid").className = "search-grid";
-        document.getElementById("searchGrid").innerHTML = "";
-        document.getElementById("resultPanel").className = "result-panel";
-        document.getElementById("resultBody").innerHTML = "";
-        document.getElementById("resultBody").textContent = "";
-        document.getElementById("resultMeta").textContent = "";
-        document.getElementById("sourcesRow").innerHTML = "";
-        document.getElementById("roundTracker").style.display = "none";
-        document.getElementById("roundTracker").innerHTML = "";
-        document.getElementById("gapPanel").className = "gap-panel";
-        document.getElementById("gapText").textContent = "";
-        document.getElementById("gapQueries").innerHTML = "";
-        document.getElementById("confFill").style.width = "0%";
-        document.getElementById("confPct").textContent = "0%";
-        document.getElementById("academicPanel").className = "academic-panel";
-        document.getElementById("academicList").innerHTML = "";
-        [1, 2, 3, 4].forEach((n) => setStep(n, "", "Waiting"));
-      }
-
-      // ── SSE event handlers ──────────────────────────────────────────────────────
-
-      function onStep(data) {
-        setStep(data.step, data.state, data.text);
-      }
-
-      function onDecomposition(data) {
-        document.getElementById("thoughtPanel").className =
-          "thought-panel visible";
-        const list = document.getElementById("thoughtList");
-
-        const r = document.createElement("li");
-        r.className = "thought-item reasoning";
-        r.textContent = "💡 " + data.reasoning;
-        list.appendChild(r);
-
-        data.queries.forEach((q, i) => {
-          const li = document.createElement("li");
-          li.className = "thought-item";
-          li.textContent = `Q${i + 1}: ${q}`;
-          list.appendChild(li);
-        });
-      }
-
-      function onSearchStart(data) {
-        const grid = document.getElementById("searchGrid");
-        grid.className = "search-grid visible";
-
-        const existing = document.getElementById("chip" + data.index);
-        if (existing) return;
-
-        const chip = document.createElement("div");
-        chip.className = "search-chip searching";
-        chip.id = "chip" + data.index;
-        chip.innerHTML = `
-      <div class="chip-label searching">Searching & scraping</div>
-      <div class="chip-query">${escHtml(data.query)}</div>
-      <div class="chip-sources" id="chipSrc${data.index}"></div>
-    `;
-        grid.appendChild(chip);
-      }
-
-      function onSearchDone(data) {
-        const chip = document.getElementById("chip" + data.index);
-        if (!chip) return;
-        const fullScraped = data.full_scraped || 0;
-        chip.className = "search-chip done";
-        const lbl = chip.querySelector(".chip-label");
-        lbl.className = "chip-label done";
-        lbl.textContent =
-          fullScraped > 0 ? `Found · ${fullScraped} pages read` : "Found";
-
-        const srcEl = document.getElementById("chipSrc" + data.index);
-        if (srcEl && data.citations && data.citations.length) {
-          srcEl.innerHTML = "";
-          const seen = new Set();
-          data.citations.slice(0, 4).forEach((c) => {
-            const domain = c.domain || "";
-            if (seen.has(domain)) return;
-            seen.add(domain);
-            const badge = document.createElement("span");
-            const isFullPage = c.type === "full_page";
-            badge.className =
-              "tier-badge " + (c.tier === "tier1" ? "t1" : "t2");
-            badge.textContent = domain + (isFullPage ? " ✦" : "");
-            badge.title = isFullPage
-              ? `Full page scraped (${(c.chars || 0).toLocaleString()} chars)`
-              : "Snippet only";
-            srcEl.appendChild(badge);
+        function resetUI() {
+          document.getElementById("errorMsg").className = "error-msg";
+          document.getElementById("thoughtPanel").className = "thought-panel";
+          document.getElementById("thoughtList").innerHTML = "";
+          document.getElementById("searchGrid").className = "search-grid";
+          document.getElementById("searchGrid").innerHTML = "";
+          document.getElementById("resultPanel").className = "result-panel";
+          document.getElementById("resultBody").innerHTML = "";
+          document.getElementById("resultBody").textContent = "";
+          document.getElementById("resultMeta").textContent = "";
+          document.getElementById("sourcesRow").innerHTML = "";
+          document.getElementById("roundTracker").style.display = "none";
+          document.getElementById("roundTracker").innerHTML = "";
+          document.getElementById("gapPanel").className = "gap-panel";
+          document.getElementById("gapText").textContent = "";
+          document.getElementById("gapQueries").innerHTML = "";
+          document.getElementById("confFill").style.width = "0%";
+          document.getElementById("confPct").textContent = "0%";
+          document.getElementById("academicPanel").className = "academic-panel";
+          document.getElementById("academicList").innerHTML = "";
+          document.getElementById("agentPlanPanel").className = "agent-panel";
+          document.getElementById("agentFeedPanel").className = "agent-panel";
+          document.getElementById("agentPlanSteps").innerHTML = "";
+          document.getElementById("agentStepFeed").innerHTML = "";
+          document.getElementById("agentExtractPanel").style.display = "none";
+          document.getElementById("agentExtractPanel").textContent = "";
+          document.getElementById("cuResultPanel").className =
+            "cu-result-panel";
+          document.getElementById("cuResultBody").innerHTML = "";
+          document.getElementById("cuResultMeta").textContent = "";
+          document.getElementById("screenshotTrail").className =
+            "screenshot-trail";
+          document.getElementById("screenshotTrail").innerHTML = "";
+          [1, 2, 3, 4].forEach(function (n) {
+            setStep(n, "", "Waiting");
           });
         }
-      }
 
-      // ── Medium Research handlers ────────────────────────────────────────────────
+        // ── Mode switching ───────────────────────────────────────────────────────────
+        function setMode(mode) {
+          currentMode = mode;
+          document.querySelectorAll(".mode-tab").forEach(function (t) {
+            t.classList.remove("active");
+          });
+          var parts = mode.split("-");
+          var tabId =
+            "tab" +
+            parts
+              .map(function (w) {
+                return w.charAt(0).toUpperCase() + w.slice(1);
+              })
+              .join("");
+          var tab = document.getElementById(tabId);
+          if (tab) tab.classList.add("active");
 
-      function onRoundStart(data) {
-        const tracker = document.getElementById("roundTracker");
-        tracker.style.display = "block";
-        const banner = document.createElement("div");
-        banner.className = "round-banner";
-        banner.id = "round-" + data.round;
-        banner.innerHTML = `<span>↻</span><span>Round ${data.round} of ${data.max_rounds} — searching for new information</span>`;
-        tracker.appendChild(banner);
-      }
+          var subtitles = {
+            light:
+              "Chain-of-thought decomposition → parallel web search & scrape → synthesized answer",
+            medium:
+              "Recursive research up to 4 rounds → gap detection → structured long-form report",
+            deep: "Up to 8 rounds · Playwright browser · academic search · exportable 2000-word report",
+            "computer-use":
+              "Vision-based browser agent · extracts data · fills forms · navigates autonomously",
+          };
+          document.getElementById("subtitle").textContent =
+            subtitles[mode] || "";
 
-      function onGapAnalysisStart(data) {
-        document.getElementById("gapPanel").className = "gap-panel visible";
-        document.getElementById("gapText").textContent =
-          "Analyzing gaps in round " + data.round + " research...";
-        document.getElementById("gapQueries").innerHTML = "";
-      }
+          var cuSection = document.getElementById("cuInputSection");
+          var pipeline = document.getElementById("pipeline");
+          var query = document.getElementById("query");
+          var runBtn = document.getElementById("runBtn");
 
-      function onGapAnalysisDone(data) {
-        document.getElementById("gapText").textContent =
-          data.gap_analysis || "Analysis complete.";
-        const pct = Math.round((data.confidence || 0) * 100);
-        document.getElementById("confFill").style.width = pct + "%";
-        document.getElementById("confPct").textContent = pct + "%";
+          if (mode === "computer-use") {
+            cuSection.className = "cu-input-section visible";
+            pipeline.style.display = "none";
+            query.placeholder =
+              "Describe the task — e.g. Go to priceoye.pk, search for iPhone 17 Pro Max, and extract the current price";
+            runBtn.textContent = "Run Agent ↗";
+          } else {
+            cuSection.className = "cu-input-section";
+            pipeline.style.display = "";
+            query.placeholder =
+              "Ask anything — e.g. What are the latest breakthroughs in solid-state battery technology?";
+            runBtn.textContent = "Research ↗";
+          }
+          resetUI();
+        }
 
-        const qList = document.getElementById("gapQueries");
-        qList.innerHTML = "";
-        if (data.next_queries && data.next_queries.length) {
-          const label = document.createElement("div");
-          label.style.cssText =
-            "font-size:10px;color:var(--text-3);margin-top:8px;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;";
-          label.textContent = "Next round queries";
-          qList.appendChild(label);
-          data.next_queries.forEach((q) => {
-            const item = document.createElement("div");
-            item.className = "gap-query-item";
-            item.textContent = q;
-            qList.appendChild(item);
+        // ── Config check ─────────────────────────────────────────────────────────────
+        function checkConfig() {
+          fetch(API_BASE + "/config")
+            .then(function (r) {
+              return r.json();
+            })
+            .then(function (data) {
+              var ap = document.getElementById("pillAzure");
+              var ad = document.getElementById("pillAzureDetail");
+              ap.className = data.azure_ready
+                ? "service-pill ready"
+                : "service-pill missing";
+              ad.textContent = data.azure_ready
+                ? data.deployment || "connected"
+                : "not configured";
+              var sp = document.getElementById("pillSerper");
+              var sd = document.getElementById("pillSerperDetail");
+              sp.className = data.serper_ready
+                ? "service-pill ready"
+                : "service-pill missing";
+              sd.textContent = data.serper_ready
+                ? "google.serper.dev"
+                : "not configured";
+              // Scraper pills
+              var scrapers = [
+                {
+                  id: "pillScrapingBee",
+                  detId: "pillScrapingBeeDetail",
+                  key: "scrapingbee_ready",
+                  label: "app.scrapingbee.com",
+                },
+                {
+                  id: "pillBrowserless",
+                  detId: "pillBrowserlessDetail",
+                  key: "browserless_ready",
+                  label: "browserless.io",
+                },
+                {
+                  id: "pillScraperAPI",
+                  detId: "pillScraperAPIDetail",
+                  key: "scraperapi_ready",
+                  label: "api.scraperapi.com",
+                },
+              ];
+              scrapers.forEach(function (s) {
+                var pill = document.getElementById(s.id);
+                var det = document.getElementById(s.detId);
+                if (!pill) return;
+                pill.className = data[s.key]
+                  ? "service-pill ready"
+                  : "service-pill";
+                det.textContent = data[s.key] ? s.label : "not configured";
+              });
+            })
+            .catch(function () {});
+        }
+
+        // ── SSE handlers ─────────────────────────────────────────────────────────────
+        function onStep(data) {
+          setStep(data.step, data.state, data.text);
+        }
+
+        function onDecomposition(data) {
+          document.getElementById("thoughtPanel").className =
+            "thought-panel visible";
+          var list = document.getElementById("thoughtList");
+          if (data.core_subjects && data.core_subjects.length) {
+            var cs = document.createElement("li");
+            cs.className = "thought-item reasoning";
+            cs.textContent =
+              "🎯 Core subjects: " + data.core_subjects.join(" · ");
+            list.appendChild(cs);
+          }
+          if (data.dimensions_covered && data.dimensions_covered.length) {
+            var dim = document.createElement("li");
+            dim.className = "thought-item reasoning";
+            dim.textContent =
+              "📐 Dimensions: " + data.dimensions_covered.join(" · ");
+            list.appendChild(dim);
+          }
+          var r = document.createElement("li");
+          r.className = "thought-item reasoning";
+          r.textContent = "💡 " + data.reasoning;
+          list.appendChild(r);
+          data.queries.forEach(function (q, i) {
+            var li = document.createElement("li");
+            li.className = "thought-item";
+            li.textContent = "Q" + (i + 1) + ": " + q;
+            list.appendChild(li);
           });
         }
-      }
 
-      function onEarlyStop(data) {
-        const tracker = document.getElementById("roundTracker");
-        const badge = document.createElement("div");
-        badge.className = "early-stop-badge";
-        badge.innerHTML = `✓ Complete after round ${data.round} — ${Math.round((data.confidence || 0) * 100)}% confidence`;
-        tracker.appendChild(badge);
-      }
+        function onSearchStart(data) {
+          var grid = document.getElementById("searchGrid");
+          grid.className = "search-grid visible";
+          if (document.getElementById("chip" + data.index)) return;
+          var chip = document.createElement("div");
+          chip.className = "search-chip searching";
+          chip.id = "chip" + data.index;
+          chip.innerHTML =
+            '<div class="chip-label searching">Searching &amp; scraping</div><div class="chip-query">' +
+            esc(data.query) +
+            '</div><div class="chip-sources" id="chipSrc' +
+            data.index +
+            '"></div>';
+          grid.appendChild(chip);
+        }
 
-      function renderReport(text) {
-        const lines = text.split("\n");
-        let html = "";
-        for (const line of lines) {
-          const trimmed = line.trim();
-          if (trimmed.startsWith("## ")) {
-            html += `<h2>${escHtml(trimmed.slice(3))}</h2>`;
-          } else if (trimmed === "") {
-            // skip blank lines
-          } else {
-            html += `<p>${escHtml(trimmed)}</p>`;
+        function onSearchDone(data) {
+          var chip = document.getElementById("chip" + data.index);
+          if (!chip) return;
+          chip.className = "search-chip done";
+          var lbl = chip.querySelector(".chip-label");
+          lbl.className = "chip-label done";
+          lbl.textContent =
+            data.full_scraped > 0
+              ? "Found · " + data.full_scraped + " pages read"
+              : "Found";
+          var srcEl = document.getElementById("chipSrc" + data.index);
+          if (srcEl && data.citations && data.citations.length) {
+            srcEl.innerHTML = "";
+            var seen = {};
+            data.citations.slice(0, 4).forEach(function (c) {
+              if (seen[c.domain]) return;
+              seen[c.domain] = true;
+              var b = document.createElement("span");
+              b.className = "tier-badge " + (c.tier === "tier1" ? "t1" : "t2");
+              b.textContent = c.domain + (c.type === "full_page" ? " ✦" : "");
+              srcEl.appendChild(b);
+            });
           }
         }
-        document.getElementById("resultBody").innerHTML = html;
-      }
 
-      function extractConfidenceLabel(text) {
-        // Extract the qualitative confidence from the report text
-        const patterns = [
-          /overall confidence[:\s]+([A-Za-z\-]+)/i,
-          /confidence[:\s]+(very high|high|medium.low|medium|low)/i,
-          /confidence is (very high|high|medium.low|medium|low)/i,
-        ];
-        for (const p of patterns) {
-          const m = text.match(p);
-          if (m)
-            return m[1]
-              .replace(/[-_]/g, " ")
-              .toLowerCase()
-              .replace(/\w/g, (c) => c.toUpperCase());
+        function onRoundStart(data) {
+          var tracker = document.getElementById("roundTracker");
+          tracker.style.display = "block";
+          var banner = document.createElement("div");
+          banner.className = "round-banner";
+          banner.innerHTML =
+            "<span>↻</span><span>Round " +
+            data.round +
+            " of " +
+            data.max_rounds +
+            " — searching for new information</span>";
+          tracker.appendChild(banner);
         }
-        return null;
-      }
 
-      function onResult(data) {
-        document.getElementById("resultPanel").className =
-          "result-panel visible";
-        const titleMap = {
-          light: "Synthesized Answer",
-          medium: "Research Report",
-          deep: "Deep Research Report",
-        };
-        document.getElementById("resultTitle").textContent =
-          titleMap[data.mode] || "Synthesized Answer";
+        function onRoundStartDeep(data) {
+          var tracker = document.getElementById("roundTracker");
+          tracker.style.display = "block";
+          var banner = document.createElement("div");
+          banner.className = "round-banner";
+          var icon = data.use_browser ? "🌐" : "↻";
+          var label = data.use_browser ? "browser mode" : "serper mode";
+          banner.innerHTML =
+            "<span>" +
+            icon +
+            "</span><span>Round " +
+            data.round +
+            " of " +
+            data.max_rounds +
+            " — " +
+            label +
+            "</span>";
+          tracker.appendChild(banner);
+        }
 
-        const scrapeInfo =
-          data.total_scraped > 0 ? ` · ${data.total_scraped} pages read` : "";
-        const browserInfo =
-          data.browser_count > 0 ? ` (${data.browser_count} via browser)` : "";
-        const roundInfo = data.rounds_completed
-          ? ` · ${data.rounds_completed} rounds`
-          : "";
-        const paperInfo =
-          data.academic_papers && data.academic_papers.length > 0
-            ? ` · ${data.academic_papers.length} papers`
+        function onGapAnalysisStart(data) {
+          document.getElementById("gapPanel").className = "gap-panel visible";
+          document.getElementById("gapText").textContent =
+            "Analyzing gaps in round " + data.round + " research...";
+          document.getElementById("gapQueries").innerHTML = "";
+        }
+
+        function onGapAnalysisDone(data) {
+          document.getElementById("gapText").textContent =
+            data.gap_analysis || "Analysis complete.";
+          var pct = Math.round((data.confidence || 0) * 100);
+          document.getElementById("confFill").style.width = pct + "%";
+          document.getElementById("confPct").textContent = pct + "%";
+          var qList = document.getElementById("gapQueries");
+          qList.innerHTML = "";
+          if (data.next_queries && data.next_queries.length) {
+            var lbl = document.createElement("div");
+            lbl.style.cssText =
+              "font-size:10px;color:var(--text-3);margin-top:8px;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.06em";
+            lbl.textContent = "Next round queries";
+            qList.appendChild(lbl);
+            data.next_queries.forEach(function (q) {
+              var item = document.createElement("div");
+              item.className = "gap-query-item";
+              item.textContent = q;
+              qList.appendChild(item);
+            });
+          }
+        }
+
+        function onEarlyStop(data) {
+          var tracker = document.getElementById("roundTracker");
+          var badge = document.createElement("div");
+          badge.className = "early-stop-badge";
+          badge.innerHTML =
+            "✓ Complete after round " +
+            data.round +
+            " — " +
+            Math.round((data.confidence || 0) * 100) +
+            "% confidence";
+          tracker.appendChild(badge);
+        }
+
+        function mdToHtml(text) {
+          // Convert markdown to HTML — handles ## ### | tables **bold** `code`
+          var lines = text.split("\n"),
+            html = "",
+            inTable = false;
+          lines.forEach(function (line) {
+            var t = line.trim();
+            // Table row
+            if (t.startsWith("|") && t.endsWith("|")) {
+              if (!inTable) {
+                html +=
+                  '<table style="border-collapse:collapse;width:100%;margin:1rem 0;font-size:13px">';
+                inTable = true;
+              }
+              // Skip separator rows (|---|---|)
+              if (t.replace(/[|:\- ]/g, "") === "") return;
+              var cells = t.slice(1, -1).split("|");
+              var isHeader =
+                html.indexOf("<tr") === -1 || html.split("<tr").length <= 2;
+              var tag = isHeader ? "th" : "td";
+              var style =
+                "padding:6px 10px;border:1px solid var(--border);text-align:left;";
+              if (isHeader)
+                style +=
+                  "background:var(--surface-2);font-weight:600;color:var(--text);";
+              html +=
+                "<tr>" +
+                cells
+                  .map(function (c) {
+                    return (
+                      "<" +
+                      tag +
+                      ' style="' +
+                      style +
+                      '">' +
+                      inlineFormat(c.trim()) +
+                      "</" +
+                      tag +
+                      ">"
+                    );
+                  })
+                  .join("") +
+                "</tr>";
+              return;
+            } else if (inTable) {
+              html += "</table>";
+              inTable = false;
+            }
+            if (t.startsWith("### "))
+              html +=
+                '<h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 0.4rem;letter-spacing:-0.1px">' +
+                inlineFormat(esc(t.slice(4))) +
+                "</h3>";
+            else if (t.startsWith("## "))
+              html += "<h2>" + inlineFormat(esc(t.slice(3))) + "</h2>";
+            else if (t.startsWith("# "))
+              html += "<h2>" + inlineFormat(esc(t.slice(2))) + "</h2>";
+            else if (t.startsWith("- ") || t.startsWith("* "))
+              html +=
+                '<p style="padding-left:1rem">· ' +
+                inlineFormat(esc(t.slice(2))) +
+                "</p>";
+            else if (t !== "") html += "<p>" + inlineFormat(esc(t)) + "</p>";
+          });
+          if (inTable) html += "</table>";
+          return html;
+        }
+
+        function inlineFormat(s) {
+          // **bold**, *italic*, `code`, [link](url)
+          return s
+            .replace(
+              /\*\*([^*]+)\*\*/g,
+              '<strong style="color:var(--text);font-weight:600">$1</strong>',
+            )
+            .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+            .replace(
+              /`([^`]+)`/g,
+              '<code style="background:var(--bg-3);padding:1px 5px;border-radius:3px;font-size:12px;color:var(--accent)">$1</code>',
+            )
+            .replace(
+              /\[([^\]]+)\]\(([^)]+)\)/g,
+              '<a href="$2" target="_blank" style="color:var(--accent);text-decoration:none">$1</a>',
+            );
+        }
+
+        function renderReport(text) {
+          document.getElementById("resultBody").innerHTML = mdToHtml(text);
+        }
+
+        function extractConfidenceLabel(text) {
+          var patterns = [
+            /overall confidence[:\s]+([A-Za-z\-]+)/i,
+            /confidence[:\s]+(very high|high|medium.low|medium|low)/i,
+            /confidence is (very high|high|medium.low|medium|low)/i,
+          ];
+          for (var i = 0; i < patterns.length; i++) {
+            var m = text.match(patterns[i]);
+            if (m)
+              return m[1]
+                .replace(/[-_]/g, " ")
+                .toLowerCase()
+                .replace(/\b\w/g, function (c) {
+                  return c.toUpperCase();
+                });
+          }
+          return null;
+        }
+
+        function onResult(data) {
+          document.getElementById("resultPanel").className =
+            "result-panel visible";
+          var titles = {
+            light: "Synthesized Answer",
+            medium: "Research Report",
+            deep: "Deep Research Report",
+          };
+          document.getElementById("resultTitle").textContent =
+            titles[data.mode] || "Synthesized Answer";
+          var scrapeInfo =
+            data.total_scraped > 0
+              ? " · " + data.total_scraped + " pages read"
+              : "";
+          var browserInfo =
+            data.browser_count > 0
+              ? " (" + data.browser_count + " via browser)"
+              : "";
+          var roundInfo = data.rounds_completed
+            ? " · " + data.rounds_completed + " rounds"
             : "";
-
-        // Extract qualitative confidence from report text (more meaningful than numeric)
-        const confLabel =
-          data.mode !== "light" ? extractConfidenceLabel(data.answer) : null;
-        const confInfo = confLabel ? ` · confidence: ${confLabel}` : "";
-
-        document.getElementById("resultMeta").textContent =
-          `${data.elapsed}s${roundInfo} · ${data.sources_searched} searches · ${data.citations.length} sources${scrapeInfo}${browserInfo}${paperInfo}${confInfo}`;
-
-        if (data.mode === "medium" || data.mode === "deep") {
-          renderReport(data.answer);
-        } else {
-          document.getElementById("resultBody").textContent = data.answer;
+          var paperInfo =
+            data.academic_papers && data.academic_papers.length > 0
+              ? " · " + data.academic_papers.length + " papers"
+              : "";
+          var confLabel =
+            data.mode !== "light" ? extractConfidenceLabel(data.answer) : null;
+          var confInfo = confLabel ? " · confidence: " + confLabel : "";
+          document.getElementById("resultMeta").textContent =
+            data.elapsed +
+            "s" +
+            roundInfo +
+            " · " +
+            data.sources_searched +
+            " searches · " +
+            data.citations.length +
+            " sources" +
+            scrapeInfo +
+            browserInfo +
+            paperInfo +
+            confInfo;
+          if (data.mode === "medium" || data.mode === "deep")
+            renderReport(data.answer);
+          else document.getElementById("resultBody").textContent = data.answer;
+          if (data.mode === "deep" && data.download_ready) {
+            var dl = document.createElement("a");
+            dl.className = "download-btn";
+            dl.href = API_BASE + "/research/deep/download";
+            dl.target = "_blank";
+            dl.textContent = "↓ Download report (.md)";
+            document.getElementById("resultPanel").appendChild(dl);
+          }
+          if (data.citations && data.citations.length) {
+            var row = document.getElementById("sourcesRow");
+            var lbl = document.createElement("span");
+            lbl.className = "sources-label";
+            lbl.textContent = "Sources";
+            row.appendChild(lbl);
+            var seen = {};
+            data.citations.forEach(function (c) {
+              if (seen[c.domain]) return;
+              seen[c.domain] = true;
+              var a = document.createElement("a");
+              a.className =
+                "source-pill" + (c.tier === "tier1" ? " tier1" : "");
+              a.href = c.url;
+              a.target = "_blank";
+              a.rel = "noopener noreferrer";
+              a.textContent = c.domain + (c.type === "full_page" ? " ✦" : "");
+              row.appendChild(a);
+            });
+          }
         }
 
-        if (data.mode === "deep" && data.download_ready) {
-          const dl = document.createElement("a");
-          dl.className = "download-btn";
-          dl.href = `${API_BASE}/research/deep/download`;
-          dl.target = "_blank";
-          dl.innerHTML = "↓ Download report (.md)";
-          document.getElementById("resultPanel").appendChild(dl);
+        function onAcademicDetected(data) {
+          if (data.is_academic) {
+            document.getElementById("academicPanel").className =
+              "academic-panel visible";
+            document.getElementById("academicList").innerHTML =
+              '<div style="font-size:12px;color:var(--text-3)">Academic search queued for round 3...</div>';
+          }
         }
 
-        if (data.citations && data.citations.length) {
-          const row = document.getElementById("sourcesRow");
-          const label = document.createElement("span");
-          label.className = "sources-label";
-          label.textContent = "Sources";
-          row.appendChild(label);
-
-          const seen = new Set();
-          data.citations.forEach((c) => {
-            const domain = c.domain || "";
-            if (seen.has(domain)) return;
-            seen.add(domain);
-            const a = document.createElement("a");
-            const isTier1 = c.tier === "tier1";
-            const isFullPage = c.type === "full_page";
-            a.className = "source-pill" + (isTier1 ? " tier1" : "");
-            a.href = c.url;
-            a.target = "_blank";
-            a.rel = "noopener noreferrer";
-            a.title =
-              (isTier1 ? "★ High-authority" : "Standard") +
-              (isFullPage
-                ? ` · Full page (${(c.chars || 0).toLocaleString()} chars)`
-                : " · Snippet");
-            a.textContent = domain + (isFullPage ? " ✦" : "");
-            row.appendChild(a);
-          });
-        }
-      }
-
-      // ── Deep Research SSE handlers ──────────────────────────────────────────────
-
-      function onAcademicDetected(data) {
-        if (data.is_academic) {
+        function onAcademicSearchDone(data) {
           document.getElementById("academicPanel").className =
             "academic-panel visible";
-          document.getElementById("academicList").innerHTML =
-            '<div style="font-size:12px;color:var(--text-3)">Academic search queued for round 3...</div>';
-        }
-      }
-
-      function onAcademicSearchDone(data) {
-        const panel = document.getElementById("academicPanel");
-        panel.className = "academic-panel visible";
-        const list = document.getElementById("academicList");
-        list.innerHTML = "";
-
-        if (!data.papers || !data.papers.length) {
-          list.innerHTML =
-            '<div style="font-size:12px;color:var(--text-3)">No academic papers found.</div>';
-          return;
-        }
-
-        data.papers.forEach((p) => {
-          const div = document.createElement("div");
-          div.className = "paper-item";
-          const badge = p.source === "arxiv" ? "arxiv" : "scholar";
-          const badgeLabel =
-            p.source === "arxiv" ? "arXiv" : "Semantic Scholar";
-          const citeStr = p.citations > 0 ? ` · ${p.citations} citations` : "";
-          div.innerHTML = `
-        <div class="paper-title">${escHtml(p.title)}</div>
-        <div class="paper-meta">
-          <span class="paper-badge ${badge}">${badgeLabel}</span>
-          ${escHtml(p.authors)} (${escHtml(p.year || "")})${escHtml(citeStr)}
-        </div>`;
-          list.appendChild(div);
-        });
-      }
-
-      function onRoundStartDeep(data) {
-        const tracker = document.getElementById("roundTracker");
-        tracker.style.display = "block";
-        const banner = document.createElement("div");
-        banner.className = "round-banner";
-        const icon = data.use_browser ? "🌐" : "↻";
-        const label = data.use_browser ? "browser mode" : "serper mode";
-        banner.innerHTML = `<span>${icon}</span><span>Round ${data.round} of ${data.max_rounds} — ${label}</span>`;
-        tracker.appendChild(banner);
-      }
-
-      // ── Main research runner ────────────────────────────────────────────────────
-
-      async function runResearch() {
-        const query = document.getElementById("query").value.trim();
-        if (!query) {
-          showError("Please enter a research question.");
-          return;
+          var list = document.getElementById("academicList");
+          list.innerHTML = "";
+          if (!data.papers || !data.papers.length) {
+            list.innerHTML =
+              '<div style="font-size:12px;color:var(--text-3)">No academic papers found.</div>';
+            return;
+          }
+          data.papers.forEach(function (p) {
+            var div = document.createElement("div");
+            div.className = "paper-item";
+            var badge = p.source === "arxiv" ? "arxiv" : "scholar";
+            var bl = p.source === "arxiv" ? "arXiv" : "Semantic Scholar";
+            var cs = p.citations > 0 ? " · " + p.citations + " citations" : "";
+            div.innerHTML =
+              '<div class="paper-title">' +
+              esc(p.title) +
+              '</div><div class="paper-meta"><span class="paper-badge ' +
+              badge +
+              '">' +
+              bl +
+              "</span>" +
+              esc(p.authors) +
+              " (" +
+              esc(p.year || "") +
+              ")" +
+              esc(cs) +
+              "</div>";
+            list.appendChild(div);
+          });
         }
 
-        const btn = document.getElementById("runBtn");
-        btn.disabled = true;
-        resetUI();
+        var ACTION_ICONS = {
+          navigate: "→",
+          click: "●",
+          type: "✎",
+          press: "⌨",
+          scroll: "↕",
+          extract: "◈",
+          wait: "◷",
+          download: "↓",
+          done: "✓",
+          failed: "✗",
+          error: "!",
+          compile: "⟳",
+          plan: "◎",
+        };
 
-        try {
-          const endpoint =
-            currentMode === "medium"
-              ? "/research/medium"
-              : currentMode === "deep"
-                ? "/research/deep/v2"
-                : "/research/light";
-          const response = await fetch(`${API_BASE}${endpoint}`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ query }),
+        function onAgentPlan(data) {
+          document.getElementById("agentPlanPanel").className =
+            "agent-panel visible";
+          var steps = document.getElementById("agentPlanSteps");
+          steps.innerHTML = "";
+          (data.steps || []).forEach(function (s) {
+            var div = document.createElement("div");
+            div.className = "agent-plan-step";
+            div.textContent = s;
+            steps.appendChild(div);
+          });
+        }
+
+        function onAgentStep(data) {
+          document.getElementById("agentFeedPanel").className =
+            "agent-panel visible";
+          var list = document.getElementById("agentStepFeed");
+          var item = document.createElement("div");
+          var act = data.action || "unknown";
+          item.className = "agent-step-item " + act;
+          var icon = ACTION_ICONS[act] || "·";
+          item.innerHTML =
+            '<span class="agent-step-num">' +
+            (data.step > 0 ? data.step : "") +
+            '</span><span class="agent-step-action">' +
+            icon +
+            " " +
+            act +
+            '</span><span class="agent-step-desc">' +
+            esc(data.description || data.reason || "") +
+            "</span>";
+          list.appendChild(item);
+          list.scrollTop = list.scrollHeight;
+        }
+
+        function onAgentExtract(data) {
+          var panel = document.getElementById("agentExtractPanel");
+          panel.style.display = "block";
+          panel.textContent =
+            (panel.textContent ? panel.textContent + "\n---\n" : "") +
+            (data.content || "");
+        }
+
+        function renderCuReport(text) {
+          document.getElementById("cuResultBody").innerHTML = mdToHtml(text);
+        }
+
+        function openLightbox(src) {
+          document.getElementById("lightboxImg").src = src;
+          document.getElementById("screenshotLightbox").className =
+            "screenshot-lightbox visible";
+        }
+
+        function closeLightbox() {
+          document.getElementById("screenshotLightbox").className =
+            "screenshot-lightbox";
+        }
+
+        function onAgentDone(data) {
+          document.getElementById("cuResultPanel").className =
+            "cu-result-panel visible";
+          document.getElementById("cuResultMeta").textContent =
+            data.elapsed +
+            "s · " +
+            data.total_steps +
+            " steps · " +
+            (data.success ? "Completed ✓" : "Partial ⚠");
+          renderCuReport(data.summary || "");
+          if (data.screenshots && data.screenshots.length) {
+            var trail = document.getElementById("screenshotTrail");
+            trail.className = "screenshot-trail visible";
+            data.screenshots.forEach(function (b64, i) {
+              var img = document.createElement("img");
+              img.className = "screenshot-thumb";
+              img.src = "data:image/jpeg;base64," + b64;
+              img.title = "Step " + (i + 1);
+              img.alt = "Step " + (i + 1);
+              img.addEventListener(
+                "click",
+                (function (s) {
+                  return function () {
+                    openLightbox(s);
+                  };
+                })(img.src),
+              );
+              trail.appendChild(img);
+            });
+          }
+        }
+
+        // ── Main runner ──────────────────────────────────────────────────────────────
+        async function runResearch() {
+          var query = document.getElementById("query").value.trim();
+          if (!query) {
+            showError("Please enter a research question or task.");
+            return;
+          }
+          var btn = document.getElementById("runBtn");
+          btn.disabled = true;
+          resetUI();
+          try {
+            var endpoint =
+              currentMode === "medium"
+                ? "/research/medium"
+                : currentMode === "deep"
+                  ? "/research/deep/v2"
+                  : currentMode === "computer-use"
+                    ? "/computer-use"
+                    : "/research/light";
+            var cuUrl =
+              document.getElementById("cuStartUrl").value.trim() || null;
+            var body =
+              currentMode === "computer-use"
+                ? JSON.stringify({ task: query, start_url: cuUrl })
+                : JSON.stringify({ query: query });
+            var response = await fetch(API_BASE + endpoint, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: body,
+            });
+            if (!response.ok) {
+              var err = await response.json().catch(function () {
+                return {};
+              });
+              throw new Error(err.detail || "Server error " + response.status);
+            }
+            var reader = response.body.getReader();
+            var decoder = new TextDecoder();
+            var buffer = "";
+            while (true) {
+              var chunk = await reader.read();
+              if (chunk.done) break;
+              buffer += decoder.decode(chunk.value, { stream: true });
+              var parts = buffer.split("\n\n");
+              buffer = parts.pop();
+              parts.forEach(function (part) {
+                if (!part.trim()) return;
+                var eventType = "message",
+                  dataLine = "";
+                part.split("\n").forEach(function (line) {
+                  if (line.startsWith("event: "))
+                    eventType = line.slice(7).trim();
+                  if (line.startsWith("data: "))
+                    dataLine = line.slice(6).trim();
+                });
+                if (!dataLine) return;
+                var data;
+                try {
+                  data = JSON.parse(dataLine);
+                } catch (e) {
+                  return;
+                }
+                switch (eventType) {
+                  case "step":
+                    onStep(data);
+                    break;
+                  case "decomposition":
+                    onDecomposition(data);
+                    break;
+                  case "search_start":
+                    onSearchStart(data);
+                    break;
+                  case "search_done":
+                    onSearchDone(data);
+                    break;
+                  case "result":
+                    onResult(data);
+                    break;
+                  case "round_start":
+                    currentMode === "deep"
+                      ? onRoundStartDeep(data)
+                      : onRoundStart(data);
+                    break;
+                  case "gap_analysis_start":
+                    onGapAnalysisStart(data);
+                    break;
+                  case "gap_analysis_done":
+                    onGapAnalysisDone(data);
+                    break;
+                  case "early_stop":
+                    onEarlyStop(data);
+                    break;
+                  case "academic_detected":
+                    onAcademicDetected(data);
+                    break;
+                  case "academic_search_done":
+                    onAcademicSearchDone(data);
+                    break;
+                  case "agent_plan":
+                    onAgentPlan(data);
+                    break;
+                  case "agent_step":
+                    onAgentStep(data);
+                    break;
+                  case "agent_extract":
+                    onAgentExtract(data);
+                    break;
+                  case "agent_done":
+                    onAgentDone(data);
+                    break;
+                  case "agent_start":
+                    break;
+                  case "agent_error":
+                    onAgentStep({
+                      step: data.step,
+                      action: "failed",
+                      description: data.reason || "Agent error",
+                    });
+                    break;
+                  case "error":
+                    showError(data.message);
+                    break;
+                  case "done":
+                    break;
+                }
+              });
+            }
+          } catch (err) {
+            showError(
+              "Connection error: " + err.message + " — Is the server running?",
+            );
+          } finally {
+            btn.disabled = false;
+          }
+        }
+
+        // ── Attach all event listeners after all functions are defined ───────────────
+        document
+          .getElementById("tabLight")
+          .addEventListener("click", function () {
+            setMode("light");
+          });
+        document
+          .getElementById("tabMedium")
+          .addEventListener("click", function () {
+            setMode("medium");
+          });
+        document
+          .getElementById("tabDeep")
+          .addEventListener("click", function () {
+            setMode("deep");
+          });
+        document
+          .getElementById("tabComputerUse")
+          .addEventListener("click", function () {
+            setMode("computer-use");
+          });
+        document
+          .getElementById("runBtn")
+          .addEventListener("click", runResearch);
+        document
+          .getElementById("screenshotLightbox")
+          .addEventListener("click", closeLightbox);
+        document
+          .getElementById("query")
+          .addEventListener("keydown", function (e) {
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault();
+              runResearch();
+            }
           });
 
-          if (!response.ok) {
-            const err = await response.json().catch(() => ({}));
-            throw new Error(err.detail || "Server error " + response.status);
-          }
-
-          const reader = response.body.getReader();
-          const decoder = new TextDecoder();
-          let buffer = "";
-
-          while (true) {
-            const { value, done } = await reader.read();
-            if (done) break;
-
-            buffer += decoder.decode(value, { stream: true });
-            const chunks = buffer.split("\n\n");
-            buffer = chunks.pop();
-
-            for (const chunk of chunks) {
-              if (!chunk.trim()) continue;
-
-              let eventType = "message";
-              let dataLine = "";
-
-              for (const line of chunk.split("\n")) {
-                if (line.startsWith("event: "))
-                  eventType = line.slice(7).trim();
-                if (line.startsWith("data: ")) dataLine = line.slice(6).trim();
-              }
-
-              if (!dataLine) continue;
-
-              let data;
-              try {
-                data = JSON.parse(dataLine);
-              } catch {
-                continue;
-              }
-
-              switch (eventType) {
-                case "step":
-                  onStep(data);
-                  break;
-                case "decomposition":
-                  onDecomposition(data);
-                  break;
-                case "search_start":
-                  onSearchStart(data);
-                  break;
-                case "search_done":
-                  onSearchDone(data);
-                  break;
-                case "result":
-                  onResult(data);
-                  break;
-                case "round_start":
-                  if (currentMode === "deep") onRoundStartDeep(data);
-                  else onRoundStart(data);
-                  break;
-                case "gap_analysis_start":
-                  onGapAnalysisStart(data);
-                  break;
-                case "gap_analysis_done":
-                  onGapAnalysisDone(data);
-                  break;
-                case "early_stop":
-                  onEarlyStop(data);
-                  break;
-                case "academic_detected":
-                  onAcademicDetected(data);
-                  break;
-                case "academic_search_done":
-                  onAcademicSearchDone(data);
-                  break;
-                case "error":
-                  showError(data.message);
-                  break;
-                case "done":
-                  break;
-              }
-            }
-          }
-        } catch (err) {
-          showError(
-            "Connection error: " + err.message + " — Is the server running?",
-          );
-        } finally {
-          btn.disabled = false;
-        }
-      }
-
-      document.getElementById("query").addEventListener("keydown", (e) => {
-        if (e.key === "Enter" && !e.shiftKey) {
-          e.preventDefault();
-          runResearch();
-        }
-      });
-
-      function escHtml(s) {
-        return String(s)
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;");
-      }
+        checkConfig();
+      })();
     </script>
   </body>
 </html>
